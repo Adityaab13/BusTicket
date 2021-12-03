@@ -17,4 +17,5 @@ const getCollectionFn = (collection) => {
 
 module.exports = {
   users: getCollectionFn('users'),
+  bus: getCollectionFn('bus')
 };
