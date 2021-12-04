@@ -25,4 +25,23 @@ module.exports = {
     
         return { userInserted : true };
       },
+
+    async selectBus(startCity, destination){
+
+        const busCollection = await bus();
+        let busData = await busCollection.find({startCity: startCity, destination: destination}).toArray();
+        if(busData.length === 0) throw "No bus exist in this track";
+          
+        return busData;
+      },
+  
+    async selectBusByName(companyName){
+  
+        const busCollection = await bus();
+        let busData = await busCollection.find({companyName:companyName}).toArray();
+        if(busData.length === 0) throw ` ${this.companyName} doesn't exist `;
+          
+        return busData;
+      },
+
     }
