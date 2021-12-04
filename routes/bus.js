@@ -19,3 +19,34 @@ router.post('/createBus', async(req,res) => {
         res.status(400).json({error: e});
     }
 });
+
+router.post('/route_select', async(req,res) => {
+    try{
+        let start = req.body.from;
+        let end = req.body.to;
+        let cn = req.body.companyName;
+        if (!start && !end && cn) {
+            let name = req.body.companyName;
+            const existedCompany = await data.selectBusByName(name);
+            res.render("route_selection/route_selection",{allBusByName:existedCompany});
+            return;
+        }
+        else {
+            const existedroute = await data.selectBus(start,end);
+            res.render("route_selection/route_selection",{allBus:existedroute});
+            return;
+        }
+    }
+    catch(e){
+        res.json({error:e});
+    }
+});
+
+router.get('/route_select', async(req,res) => {
+    res.render('route_selection/route_selection');
+    return;
+});
+
+
+
+module.exports = router;
