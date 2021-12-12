@@ -58,4 +58,36 @@ router.post("/", async (req, res, next) => {
     }
 });
 
+router.get("/:id", async (req, res, next) => {
+
+    let userId = xss(req.params.id);
+    try {
+
+        if (!userId) throw 'You must provide an userId to search for';
+        if (typeof userId !== "string") throw 'userId must be string';
+    } catch (e) {
+        if (e && e.message) {
+            res.status(400).json({ error: e.message });
+        }
+        else {
+            res.status(400).json({ error: e });
+        }
+        return;
+    }
+    try {
+
+
+        User.find({ _id: userId }, (err, doc) => {
+            if (err) {
+                res.json({ status: false, message: "error while searching with ID" })
+            }
+            else
+                res.json({ doc })
+        });
+    } catch (error) {
+        res.status(404).json({ message: 'User not found' });
+        return;
+    }
+});
+
 module.exports = router;
