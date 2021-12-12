@@ -25,4 +25,15 @@ router.post('/', (req, res) => {
     })
 });
 
+router.get('/', (req, res) => {
+
+    bus.find({}, (err, bus) => {
+        if (err) {
+            res.json({ status: false, message: "error while getting all booking" })
+        }
+        else
+            res.json({ bus })
+    })
+});
+
 module.exports = router;
