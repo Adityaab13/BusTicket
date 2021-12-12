@@ -1,3 +1,4 @@
+
 var express = require('express');
 var path = require('path');
 var cookieParser = require('cookie-parser');
@@ -6,13 +7,12 @@ var mongoose = require('mongoose');
 var passport = require('passport');
 const cors = require('cors')
 
-
 var app = express();
 
 
 // Login and Register 
 require('./auth/auth');
-const login = require('./routes/login')
+const login = require('./routes/login');
 const loggedInPage = require('./routes/loggedInUser');
 
 // ----------------------------------------------------
@@ -56,3 +56,4 @@ app.use('/review', reviewRoute);
 app.use('/profile', profileRoute);
 
 module.exports = app;
+
