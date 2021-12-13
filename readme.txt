@@ -1,6 +1,6 @@
 Install node modules
 
-cd MERN-BUS-APP
+
 cd frontend
 npm install
 cd..
@@ -16,4 +16,4 @@ cd frontend
 npm start
 cd..
 cd backend
-npm run devStart
+npm start
