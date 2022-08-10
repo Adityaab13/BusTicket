@@ -8,6 +8,6 @@ Commands:
 
 ## Tech
 > Core Technologies
-- **React.js** - front-end framework on which Fable runs
+- **React.js** - front-end framework on which busticket sysytem built
 - **MongoDb** - our NoSQL database
 - **Node.js + Express.js** - backend server for application serving
