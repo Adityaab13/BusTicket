@@ -1,12 +1,12 @@
 # BusTicket_CS546_Group14
 This is a project of group 14 from CS-546
 
-##Setting everything up
+## Setting everything up
 Commands:
 - cd frontend -> npm install -> npm start
 - cd backendend -> npm install -> npm start
 
-##Tech
+## Tech
 > Core Technologies
 - **React.js** - front-end framework on which Fable runs
 - **MongoDb** - our NoSQL database
